@@ -29,7 +29,7 @@ window.onload = function() {
   function startLuxonPerformance() {
     console.time('luxon')
     for (let i =0; i < range; i ++ ) {
-      DateTime.local().toLocaleString(DateTime.DATE_SHORT)
+      DateTime.local().toFormat('dd.MM.yyyy')
     }
     console.timeEnd('luxon')
   }
