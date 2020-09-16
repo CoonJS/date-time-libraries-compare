@@ -4,9 +4,11 @@ import moment from 'moment';
 
 
 window.onload = function() {
-  const luxon = DateTime.local().toLocaleString(DateTime.DATE_SHORT);
+  const luxon = DateTime.local().toFormat('dd.MM.yyyy');
   const dateFNS = format(new Date(), 'dd.MM.yyyy')
   const momentDate = moment(new Date()).format('DD.MM.yyyy');
+
+  console.log('reference', { luxon, dateFNS, momentDate });
 
   const range = 1000000
 
@@ -29,7 +31,7 @@ window.onload = function() {
   function startLuxonPerformance() {
     console.time('luxon')
     for (let i =0; i < range; i ++ ) {
-      DateTime.local().toLocaleString(DateTime.DATE_SHORT)
+      DateTime.local().toFormat('dd.MM.yyyy');
     }
     console.timeEnd('luxon')
   }
